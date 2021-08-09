@@ -24,7 +24,7 @@
     <%= shout.username %>
     <%= render shout.content %> 
     <%= time_ago_in_words(shout.created_at)%>
-    <%= link_to "Delete", shout_path(shout), method: :delete, data: { confirm: "Are you sure about delete this shout?" }%>
+    <%= like_button(shout) %>
   </div>
 <% end %>
 
