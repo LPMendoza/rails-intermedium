@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_142842) do
+ActiveRecord::Schema.define(version: 2021_08_09_173623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "shouts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "content_type", null: false
+    t.integer "content_id", null: false
+    t.index ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id"
+    t.index ["user_id"], name: "index_shouts_on_user_id"
+  end
 
   create_table "text_shouts", force: :cascade do |t|
     t.string "body", null: false
@@ -34,4 +44,5 @@ ActiveRecord::Schema.define(version: 2021_08_09_142842) do
     t.index ["username"], name: "index_users_on_username"
   end
 
+  add_foreign_key "shouts", "users"
 end
