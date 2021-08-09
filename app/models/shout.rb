@@ -1,7 +1,7 @@
 class Shout < ApplicationRecord
   belongs_to :user
-  validates :body, presence: true, length: { minimum:1 , maximum:144 }
   validates :user, presence: true
 
   delegate :username, to: :user
+  belongs_to :content, polymorphic: true
 end

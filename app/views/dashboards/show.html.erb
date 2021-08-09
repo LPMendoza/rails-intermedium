@@ -4,14 +4,16 @@
 <%= link_to "Delete all", delete_all_shouts_path , method: :post, data: { confirm: "Are you sure about delete all the shouts?" } if @shouts.length > 0 %>
 
 <%= form_for @shout do |f| %>
-  <%= f.text_field :body, placeholder: "Shout here!", required: true %>
+  <%= f.fields_for :content do |content_form| %>
+    <%= content_form.text_field :body, placeholder: "Shout here!", required: true %>
+  <% end %>
   <%= f.submit "Shout!" %>
 <% end %>
 
 <ul>
   <% @shouts.each do |shout| %>
     <li>
-      <%= shout.username %> - <%= shout.body %> - <%= time_ago_in_words(shout.created_at)%>
+      <%= shout.username %> - <%= shout.content.body %> - <%= time_ago_in_words(shout.created_at)%>
       <%= link_to "Delete", shout_path(shout), method: :delete, data: { confirm: "Are you sure about delete this shout?" }%>
     </li>
   <% end %>
