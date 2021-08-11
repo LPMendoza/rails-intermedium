@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def show
-    @shouts = current_user.shouts.order(created_at: :desc)
+    @shouts = current_user.timeline_shouts
     @shout = Shout.new
   end
 end
