@@ -13,12 +13,14 @@ function showAlert() {
   }
 }
 
-document.querySelector("#btnCloseFlash").onclick = function(e) {
-  hideFlash();
-}
 
 function showFlash() {
   alertContainer.classList.add("show-from-top");
+  
+  document.querySelector("#btnCloseFlash").onclick = function(e) {
+   hideFlash();
+  }
+
 }
 function hideFlash() {
   alertContainer.classList.remove("show-from-top");

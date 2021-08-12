@@ -1,6 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    @shouts = current_user.timeline_shouts
-    @shout = Shout.new
+    @dashboard = Dashboard.new(current_user)
   end
 end

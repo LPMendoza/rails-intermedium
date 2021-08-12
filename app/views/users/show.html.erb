@@ -3,14 +3,6 @@
 <%= follow_button @user %>
 <%= link_to "Followers", user_followers_path(@user) %>
 
-<% @shouts.each do |shout| %>
-  <div>
-    <%= avatar shout.user %>
-    <%= profile_link(shout.username) %>
-    <%= render shout.content %> 
-    <%= time_ago_in_words(shout.created_at)%>
-    <%= like_button(shout) %>
-  </div>
-<% end %>
-
+<%= render @timeline.shouts %>
+ 
 <%= javascript_pack_tag 'dashboard' %>

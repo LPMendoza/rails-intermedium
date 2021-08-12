@@ -8,6 +8,7 @@
   <% form.file_field :image, required: true %>
 <% end %>
 
-<%= render @shouts %>
+
+<%= render @dashboard.timeline %>
 
 <%= javascript_pack_tag 'dashboard' %>

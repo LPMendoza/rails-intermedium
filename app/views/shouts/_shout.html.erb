@@ -1,6 +1,6 @@
  <div>
    <%= avatar shout.user %>
-   <%= shout.username %>
+   <%= autolink(shout.username) %>
    <%= render shout.content %> 
    <%= time_ago_in_words(shout.created_at)%>
    <%= like_button(shout) %>
