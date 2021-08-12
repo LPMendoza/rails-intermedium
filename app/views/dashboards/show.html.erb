@@ -8,14 +8,6 @@
   <% form.file_field :image, required: true %>
 <% end %>
 
-<% @shouts.each do |shout| %>
-  <div>
-    <%= avatar shout.user %>
-    <%= shout.username %>
-    <%= render shout.content %> 
-    <%= time_ago_in_words(shout.created_at)%>
-    <%= like_button(shout) %>
-  </div>
-<% end %>
+<%= render @shouts %>
 
 <%= javascript_pack_tag 'dashboard' %>
