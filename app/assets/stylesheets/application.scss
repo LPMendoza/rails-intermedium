@@ -34,6 +34,13 @@
   &--error {
     background-color: rgb(185, 0, 77);
   }
+
+  .close-flash {
+    justify-self: end;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+  }
   
 }
 

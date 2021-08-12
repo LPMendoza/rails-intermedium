@@ -1,14 +1,25 @@
 window.onload = (e) => {
   showAlert();
 }
+const alertContainer = document.querySelector("#alertContainer");
 
 function showAlert() {
-  const alertContainer = document.querySelector("#alertContainer");
 
   if (alertContainer) {
-    alertContainer.classList.add("show-from-top");
+    showFlash();
     setTimeout((function(e) {
-      alertContainer.classList.remove("show-from-top");
+      hideFlash();
     }), 3000);
   }
+}
+
+document.querySelector("#btnCloseFlash").onclick = function(e) {
+  hideFlash();
+}
+
+function showFlash() {
+  alertContainer.classList.add("show-from-top");
+}
+function hideFlash() {
+  alertContainer.classList.remove("show-from-top");
 }

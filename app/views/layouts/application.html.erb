@@ -13,6 +13,7 @@
     <% flash.each do |type, msg| %>
       <div id="alertContainer" class="flash-messages flash-messages--<%= type == 'notice' ? 'success' : 'error' %>">
         <%= msg %>
+        <button id="btnCloseFlash" class="close-flash">x</button>
       </div>
     <% end %>
     <% if signed_in? %>

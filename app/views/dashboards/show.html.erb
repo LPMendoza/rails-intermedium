@@ -1,21 +1,11 @@
 <h1>Dashboards</h1>
 
-<h3>Shouts</h3> 
-<%= link_to "Delete all", delete_all_shouts_path , method: :post, data: { confirm: "Are you sure about delete all the shouts?" } if @shouts.length > 0 %>
-
-<%= form_for @shout do |f| %>
-  <%= f.hidden_field :content_type, value: "TextShout" %>
-  <%= f.fields_for :content do |content_form| %>
-    <%= content_form.text_field :body, placeholder: "Shout here!", required: true %>
-  <% end %>
-  <%= f.submit "Shout!" %>
+<%= shout_form_for(TextShout) do |form| %>
+  <% form.text_field :body, placeholder: "shout here!", required: true %>
 <% end %>
-<%= form_for @shout do |f| %>
-  <%= f.hidden_field :content_type, value: "PhotoShout" %>
-  <%= f.fields_for :content do |content_form| %>
-    <%= content_form.file_field :image, required: true %>
-  <% end %>
-  <%= f.submit "Shout!" %>
+
+<%= shout_form_for(PhotoShout) do |form| %>
+  <% form.file_field :image, required: true %>
 <% end %>
 
 <% @shouts.each do |shout| %>
