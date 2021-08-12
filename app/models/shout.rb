@@ -4,4 +4,5 @@ class Shout < ApplicationRecord
 
   delegate :username, to: :user
   belongs_to :content, polymorphic: true
+  
 end
