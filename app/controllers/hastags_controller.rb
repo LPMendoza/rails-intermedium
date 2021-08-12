@@ -6,6 +6,6 @@ class HastagsController < ApplicationController
   private
   
   def hashtag
-    params[:id]
+    "##{params[:id]}"
   end
 end
