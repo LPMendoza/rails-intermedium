@@ -37,5 +37,7 @@ Rails.application.routes.draw do
   resource :shouts do
     post "/delete_all", to: "shouts#destroy_all", as: "delete_all"
   end
+  
+  resources :hastags, only: [:show]
 
 end
