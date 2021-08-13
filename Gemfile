@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'clearance'
 gem 'paperclip'
 
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
